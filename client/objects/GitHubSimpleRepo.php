@@ -2,7 +2,7 @@
 
 require_once(__DIR__ . '/../GitHubObject.php');
 require_once(__DIR__ . '/GitHubUser.php');
-	
+
 
 class GitHubSimpleRepo extends GitHubObject
 {
@@ -19,11 +19,12 @@ class GitHubSimpleRepo extends GitHubObject
 			'description' => 'string',
 			'private' => 'boolean',
 			'fork' => 'boolean',
+			'ssh_url' => 'string',
 			'url' => 'string',
 			'html_url' => 'string',
 		));
 	}
-	
+
 	/**
 	 * @var int
 	 */
@@ -33,6 +34,11 @@ class GitHubSimpleRepo extends GitHubObject
 	 * @var GitHubUser
 	 */
 	protected $owner;
+
+	/**
+	 * @var string
+	 */
+	protected $ssh_url;
 
 	/**
 	 * @var string
@@ -141,5 +147,12 @@ class GitHubSimpleRepo extends GitHubObject
 		return $this->html_url;
 	}
 
-}
+	/**
+	 * @return string
+	 */
+	public function getSshUrl()
+	{
+		return $this->ssh_url;
+	}
 
+}
